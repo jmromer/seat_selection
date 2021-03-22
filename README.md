@@ -1,6 +1,19 @@
 SeatSelectionService
 ====================
 
+Requirements
+------------
+
+- Ruby 3.0 (`.tool-versions` provided for ASDF. Issue `asdf install` to install.)
+
+Installation
+------------
+
+```shell
+% asdf install
+% bundle install
+```
+
 Walkthrough
 -----------
 
@@ -24,6 +37,7 @@ class SeatSelectionService
   end
 end
 ```
+<sup>[[source](https://github.com/jmromer/seat_selection/blob/f5f77421/lib/seat_selection_service.rb#L6-L21)]</sup>
 
 A `Venue` and `Seat` model each manages logic pertaining to properties of their respective entities.
 
@@ -48,6 +62,7 @@ def find_seats(number:, as_group: false)
     .to_a
 end
 ```
+<sup>[[source](https://github.com/jmromer/seat_selection/blob/f5f77421/lib/venue.rb#L19-L35)]</sup>
 
 ```rb
 # lib/seat.rb L35-54 (f5f77421)
@@ -65,6 +80,7 @@ def calculate_centrality
   row_distance + aisle_distance.abs
 end
 ```
+<sup>[[source](https://github.com/jmromer/seat_selection/blob/f5f77421/lib/seat.rb#L35-L54)]</sup>
 
 Logic for iterating outward from the center of an aisle is provided by a `ConcentricArray` utility class:
 
@@ -82,6 +98,7 @@ def entries
     .map { |index| elements[index] }
 end
 ```
+<sup>[[source](https://github.com/jmromer/seat_selection/blob/e05f7785/lib/concentric_array.rb#L15-L24)]</sup>
 
 Tests
 -----
